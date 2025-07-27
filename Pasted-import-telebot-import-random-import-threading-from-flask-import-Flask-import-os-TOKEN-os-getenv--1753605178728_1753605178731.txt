@@ -1,0 +1,69 @@
+import telebot
+import random
+import threading
+from flask import Flask
+
+import os
+TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+bot = telebot.TeleBot(TOKEN)
+
+# Frasi standard in stile Doc
+standard_responses = [
+    "⚔️ Violence. ⚡ Speed. 💣 Momentum. That's the $DRD way.",
+    "You can't handle the Two-Time energy. $DRD only.",
+    "Still stuck in the past? The future is $DRD, baby.",
+    "Dominate or step aside. $DRD.",
+    "They play checkers. I play $DRD-level chess.",
+    "Welcome to the Champions Club. Grab your $DRD.",
+    "They follow charts. I bring the flame. $DRD.",
+]
+
+# Frasi provocatorie in risposta a sfide o insulti
+challenge_responses = [
+    "You're talking to the face of $DRD. Know your place.",
+    "You better pray the Doc doesn't respond with headshots.",
+    "Cute insult. Come back when you've joined the Champions Club.",
+    "You're not even on the minimap, kid.",
+    "The Doc doesn’t argue. He eliminates.",
+]
+
+# Comandi
+@bot.message_handler(commands=['start'])
+def send_welcome(message):
+    bot.reply_to(message, "Welcome to the Champions Club. 😎💣\nUse /drd if you're ready to dominate.")
+
+@bot.message_handler(commands=['drd'])
+def send_drd(message):
+    response = random.choice(standard_responses)
+    bot.reply_to(message, response)
+
+# Risposte automatiche su parole chiave
+keywords = ['doc', 'disrespect', 'drd', '2 time', 'champions club', 'violence', 'momentum', 'speed', 'arena']
+
+@bot.message_handler(func=lambda message: True)
+def handle_message(message):
+    msg = message.text.lower()
+    if any(k in msg for k in keywords):
+        if any(w in msg for w in ['better', 'suck', 'noob', 'trash', 'bad']):
+            response = random.choice(challenge_responses)
+        else:
+            response = random.choice(standard_responses)
+        bot.reply_to(message, response)
+
+# Flask per UptimeRobot
+app = Flask('')
+
+@app.route('/')
+def home():
+    return "The Two-Time bot is running and ready to dominate..."
+
+def run():
+    app.run(host='0.0.0.0', port=8080)
+
+def keep_alive():
+    t = threading.Thread(target=run)
+    t.start()
+
+# Avvio
+keep_alive()
+bot.infinity_polling()

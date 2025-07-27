@@ -383,6 +383,7 @@ app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
 }
 
 # Initialize database
+print(f"DB URI: {os.getenv('SQLALCHEMY_DATABASE_URI')}")
 db.init_app(app)
 
 @app.route('/')

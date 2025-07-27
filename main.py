@@ -660,19 +660,22 @@ if __name__ == "__main__":
     
     # Start the bot with enhanced responses and error handling
     # Start the bot with enhanced responses and error handling
-print("🚀 Bot is now LIVE and ready to dominate!")
-try:
-    @bot.message_handler(func=lambda message: True)
-def echo_all(message):
-    bot.reply_to(message, f"🏆 Benvenuto, campione! Hai detto: {message.text}")
+    print("🚀 Bot is now LIVE and ready to dominate!")
+    # Start the bot with enhanced responses and error handling
+    print("🚀 Bot is now LIVE and ready to dominate!")
 
 try:
+    @bot.message_handler(func=lambda message: True)
+    def echo_all(message):
+        bot.reply_to(message, f"🏆 Benvenuto, campione! Hai detto: {message.text}")
+
     bot.infinity_polling()
-except Exception as e:
+
+    except Exception as e:
     if "409" in str(e):
         print("⚠️ Another bot instance is running. Stopping this one.")
         print("⏳ Wait a moment and try restarting if needed.")
     else:
         print(f"❌ Bot error: {e}")
-        BotAnalytics.log_error("BOT_CRASH", str(e), context="Main polling loop")
-        raise    
+        BotAnalytics.log_error("BOT_CRASH", str(e), context="polling")
+        raise

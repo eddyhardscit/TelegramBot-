@@ -659,14 +659,15 @@ if __name__ == "__main__":
     print("🎯 Webhook ready: http://0.0.0.0:5000/webhook")
     
     # Start the bot with enhanced responses and error handling
-    print("🚀 Bot is now LIVE and ready to dominate!")
+    # Start the bot with enhanced responses and error handling
+print("🚀 Bot is now LIVE and ready to dominate!")
 try:
     bot.infinity_polling()
-    except Exception as e:
-        if "409" in str(e):
-            print("⚠️  Another bot instance is running. Stopping this one.")
-            print("   Wait a moment and try restarting if needed.")
-        else:
-            print(f"❌ Bot error: {e}")
-            BotAnalytics.log_error("BOT_CRASH", str(e), context="Main polling loop")
-            raise
+except Exception as e:
+    if "409" in str(e):
+        print("⚠️ Another bot instance is running. Stopping this one.")
+        print("⌛ Wait a moment and try restarting if needed.")
+    else:
+        print(f"❌ Bot error: {e}")
+        BotAnalytics.log_error("BOT_CRASH", str(e), context="Main polling loop")
+        raise

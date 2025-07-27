@@ -662,7 +662,7 @@ if __name__ == "__main__":
     # Start the bot with enhanced responses and error handling
 print("🚀 Bot is now LIVE and ready to dominate!")
 try:
-    @bot.message_handler(func=lambda message: True)
+@bot.message_handler(func=lambda message: True)
 def echo_all(message):
     bot.reply_to(message, f"🏆 Benvenuto, campione! Hai detto: {message.text}")
 
@@ -675,4 +675,4 @@ except Exception as e:
     else:
         print(f"❌ Bot error: {e}")
         BotAnalytics.log_error("BOT_CRASH", str(e), context="Main polling loop")
-        raise
+        raise    

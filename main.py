@@ -662,6 +662,9 @@ if __name__ == "__main__":
     # Start the bot with enhanced responses and error handling
 print("🚀 Bot is now LIVE and ready to dominate!")
 try:
+    @bot.message_handler(func=lambda message: True)
+def echo_all(message):
+    bot.reply_to(message, f"🏆 Benvenuto, campione! Hai detto: {message.text}")
     bot.infinity_polling()
 except Exception as e:
     if "409" in str(e):

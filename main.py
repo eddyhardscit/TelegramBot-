@@ -661,7 +661,7 @@ if __name__ == "__main__":
     # Start the bot with enhanced responses and error handling
     print("🚀 Bot is now LIVE and ready to dominate!")
     try:
-        bot.infinity_polling()
+       # bot.infinity_polling()
     except Exception as e:
         if "409" in str(e):
             print("⚠️  Another bot instance is running. Stopping this one.")

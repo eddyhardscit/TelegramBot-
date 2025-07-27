@@ -663,7 +663,6 @@ if __name__ == "__main__":
     print("🚀 Bot is now LIVE and ready to dominate!")
     # Start the bot with enhanced responses and error handling
     print("🚀 Bot is now LIVE and ready to dominate!")
-
 try:
     @bot.message_handler(func=lambda message: True)
     def echo_all(message):
@@ -671,7 +670,7 @@ try:
 
     bot.infinity_polling()
 
-    except Exception as e:
+except Exception as e:
     if "409" in str(e):
         print("⚠️ Another bot instance is running. Stopping this one.")
         print("⏳ Wait a moment and try restarting if needed.")

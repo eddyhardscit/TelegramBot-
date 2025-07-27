@@ -663,7 +663,7 @@ if __name__ == "__main__":
 print("🚀 Bot is now LIVE and ready to dominate!")
 try:
     @bot.message_handler(func=lambda message: True)
-def echo_all(message):
+    def echo_all(message):
     bot.reply_to(message, f"🏆 Benvenuto, campione! Hai detto: {message.text}")
 
 try:

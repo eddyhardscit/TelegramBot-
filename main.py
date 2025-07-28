@@ -10,6 +10,9 @@ from models import db, User, Message, BotStats, ErrorLog
 from analytics import BotAnalytics
 import os
 print("SQLALCHEMY_DATABASE_URI =", os.getenv("SQLALCHEMY_DATABASE_URI"))
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("SQLALCHEMY_DATABASE_URI")
+db.init_app(app)
 TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 if TOKEN:
     TOKEN = TOKEN.strip()  # Remove any whitespace

@@ -4,6 +4,7 @@ from datetime import datetime
 db = SQLAlchemy()
 
 class User(db.Model):
+    __bind_key__ = 'default'
     __tablename__ = 'users'
     
     id = db.Column(db.Integer, primary_key=True)

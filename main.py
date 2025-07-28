@@ -11,7 +11,7 @@ from analytics import BotAnalytics
 import os
 db = SQLAlchemy()
 app = Flask(__name__)
-app.config['SQLALCHEMY_BINDS'] = {'default': os.getenv("SQLALCHEMY_DATABASE_URI")}
+app.config['SQLALCHEMY_BINDS'] = {'default': 'sqlite:///db.sqlite3'}
 db.init_app(app)
 TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 if TOKEN:

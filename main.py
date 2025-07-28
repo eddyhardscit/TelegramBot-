@@ -9,7 +9,6 @@ from flask_sqlalchemy import SQLAlchemy
 from models import db, User, Message, BotStats, ErrorLog
 from analytics import BotAnalytics
 import os
-print("SQLALCHEMY_DATABASE_URI =", os.getenv("SQLALCHEMY_DATABASE_URI"))
 db = SQLAlchemy()
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("SQLALCHEMY_DATABASE_URI")

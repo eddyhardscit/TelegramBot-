@@ -1,0 +1,26 @@
+{
+  "project": "Project Arena",
+  "first_greetings": [
+    "Welcome to the Arena, {name}. Try to keep up.",
+    "{name}, your Champions Club access is now active."
+  ],
+  "returning_greetings": [
+    "Look who's back. Welcome to the Arena, {name}.",
+    "The Arena remembers you, {name}. Let's dominate."
+  ],
+  "responses": {
+    "standard": [
+      "Violence. Speed. Momentum. The Arena is open.",
+      "Champions don't wait for momentum. They create it.",
+      "Sunglasses on. Mullet locked. Arena mode activated."
+    ],
+    "challenge": [
+      "You're not even on the minimap, kid.",
+      "Cute attempt. The Arena has seen tougher competition."
+    ],
+    "drd": [
+      "$DRD is in the Arena. Community energy only\u2014no promises.",
+      "$DRD stays part of the Arena lore. Violence. Speed. Momentum."
+    ]
+  }
+}

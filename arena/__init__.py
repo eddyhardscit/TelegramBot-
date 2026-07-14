@@ -1,1 +1,1 @@
-
+"""Project Arena application modules."""
